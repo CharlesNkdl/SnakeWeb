@@ -75,10 +75,11 @@ class Apple {
 // Fonction pour sauvegarder le score avec le nom du joueur
 function saveScore(score) {
 	var playerName = prompt("Entrez votre nom :");
+	var sliced = playerName.slice(0,10);
 	if (playerName) {
 	  var leaderboardRef = db.collection("leaderboard");
 	  var newScore = {
-		player: playerName,
+		player: sliced,
 		score: score,
 		timestamp: firebase.firestore.Timestamp.now()
 	  };
@@ -93,7 +94,7 @@ function saveScore(score) {
   }
 var canvas = document.getElementById('canvas')
 
-var snake = new Snake(40, 40, 40);
+var snake = new Snake(30, 30, 30);
 
 var apple = new Apple();
 
@@ -160,7 +161,7 @@ function gameOver() {
 	}
 
 function resetGame() {
-	snake = new Snake(40, 40, 40);
+	snake = new Snake(30, 30, 30);
 	apple = new Apple();
 	isGameOver = false;
 	updateLeaderboard();
@@ -230,12 +231,6 @@ window.addEventListener("keydown", (event) => {
         }
     }
 });
-
-function getPlayerName() {
-	var playerNameInput = document.getElementById("playerNameInput");
-	console.log(playerNameInput.value);
-	return playerNameInput.value;
-  }
 
   function updateLeaderboard() {
 	var leaderboardTable = document.getElementById("leaderboard-table");
