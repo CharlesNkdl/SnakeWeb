@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     <title>Snake Game</title>
     <style>
         body {
@@ -28,14 +30,56 @@
 			font-size: 50px;
 			text-align: center;
 		}
+		#leaderboard {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 400px;
+		padding: 10px;
+		background-color: #f0f0f0;
+		}
+
+		#leaderboard h2 {
+		margin-top: 0;
+		}
+
+		#leaderboard-table {
+		width: 100%;
+		border-collapse: collapse;
+		}
+
+		#leaderboard-table th,
+		#leaderboard-table td {
+		padding: 5px;
+		text-align: center;
+		border-bottom: 1px solid #ccc;
+		}
+
+		#leaderboard-table th {
+		background-color: #ddd;
+		}
+
     </style>
+
 </head>
 <body>
     <div id="game-container">
         <h1>Snake Game</h1>
         <canvas id="canvas" width="600" height="600"></canvas>
     </div>
-    <script src="snake.js"></script>
+	<div id="leaderboard">
+		<h2>High Scores</h2>
+		<table id="leaderboard-table">
+		  <tr>
+			<th>Date</th>
+			<th>Player</th>
+			<th>Score</th>
+		  </tr>
+		</table>
+	  </div>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+	<script src="snake.js" type="module" defer></script>
 </body>
 </html>
 
